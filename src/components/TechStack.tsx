@@ -10,8 +10,33 @@ import {
   CylinderCollider,
   RapierRigidBody,
 } from "@react-three/rapier";
+import {
+  FaCode,
+  FaBolt,
+  FaBrain,
+  FaDatabase,
+  FaMicrochip,
+  FaLayerGroup,
+} from "react-icons/fa6";
 import PORTFOLIO_DATA from "../data/portfolioData";
 import "./styles/TechStack.css";
+
+const renderCategoryIcon = (iconName: string) => {
+  switch (iconName) {
+    case "code":
+      return <FaCode />;
+    case "bolt":
+      return <FaBolt />;
+    case "brain":
+      return <FaBrain />;
+    case "database":
+      return <FaDatabase />;
+    case "hardware":
+      return <FaMicrochip />;
+    default:
+      return <FaLayerGroup />;
+  }
+};
 
 const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
@@ -228,7 +253,7 @@ const TechStack = () => {
           {PORTFOLIO_DATA.skills.categories.map((cat) => (
             <div key={cat.name} className="skill-cat-card">
               <div className="skill-cat-header">
-                <span className="skill-cat-icon">{cat.icon}</span>
+                <span className="skill-cat-icon">{renderCategoryIcon(cat.icon)}</span>
                 <h4>{cat.name}</h4>
               </div>
               <div className="skill-items-list">

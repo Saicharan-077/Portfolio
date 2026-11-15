@@ -1,6 +1,55 @@
 import "./styles/About.css";
 import PORTFOLIO_DATA from "../data/portfolioData";
-import { FaGraduationCap, FaAward, FaUniversity } from "react-icons/fa";
+import { FaUniversity } from "react-icons/fa";
+import {
+  FaGraduationCap,
+  FaAward,
+  FaBullseye,
+  FaLightbulb,
+  FaBookOpen,
+  FaRocket,
+  FaEye,
+  FaBolt,
+  FaServer,
+  FaMicrochip,
+  FaBrain,
+  FaGlobe,
+  FaCompass,
+} from "react-icons/fa6";
+
+const renderPhilosophyIcon = (name: string) => {
+  switch (name) {
+    case "target":
+      return <FaBullseye />;
+    case "bulb":
+      return <FaLightbulb />;
+    case "book":
+      return <FaBookOpen />;
+    case "rocket":
+      return <FaRocket />;
+    default:
+      return <FaBullseye />;
+  }
+};
+
+const renderInterestIcon = (name: string) => {
+  switch (name) {
+    case "eye":
+      return <FaEye />;
+    case "bolt":
+      return <FaBolt />;
+    case "server":
+      return <FaServer />;
+    case "hardware":
+      return <FaMicrochip />;
+    case "brain":
+      return <FaBrain />;
+    case "globe":
+      return <FaGlobe />;
+    default:
+      return <FaCompass />;
+  }
+};
 
 const About = () => {
   return (
@@ -77,7 +126,7 @@ const About = () => {
           <div className="about-philo-grid">
             {PORTFOLIO_DATA.philosophy.map((ph) => (
               <div key={ph.title} className="about-philo-card">
-                <span className="philo-icon">{ph.icon}</span>
+                <span className="philo-icon">{renderPhilosophyIcon(ph.icon)}</span>
                 <h5>{ph.title}</h5>
                 <p>{ph.desc}</p>
               </div>
@@ -87,11 +136,13 @@ const About = () => {
 
         {/* Areas of Interest */}
         <div className="about-subblock">
-          <div className="about-subblock-title">🎯 Core Domains of Focus</div>
+          <div className="about-subblock-title">
+            <FaCompass /> Core Domains of Focus
+          </div>
           <div className="about-interests-grid">
             {PORTFOLIO_DATA.interests.map((it) => (
               <div key={it.title} className="about-interest-card">
-                <span className="interest-icon">{it.icon}</span>
+                <span className="interest-icon">{renderInterestIcon(it.icon)}</span>
                 <div>
                   <h6>{it.title}</h6>
                   <p>{it.desc}</p>

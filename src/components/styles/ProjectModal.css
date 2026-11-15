@@ -214,6 +214,14 @@
   margin: 0 0 10px 0;
   color: #fff;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-title-icon {
+  font-size: 15px;
+  color: #c084fc;
 }
 
 .modal-card p {

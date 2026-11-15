@@ -114,6 +114,8 @@ const Work = () => {
                     image={proj.image}
                     alt={proj.title}
                     link={proj.github}
+                    category={proj.category}
+                    accent={proj.accentColor}
                   />
                 </div>
               </div>

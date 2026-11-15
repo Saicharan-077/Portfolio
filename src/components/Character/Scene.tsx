@@ -37,10 +37,21 @@ const Scene = () => {
       renderer.toneMappingExposure = 1;
       canvasDiv.current.appendChild(renderer.domElement);
 
-      const camera = new THREE.PerspectiveCamera(14.5, aspect, 0.1, 1000);
-      camera.position.z = 10;
-      camera.position.set(0, 13.1, 24.7);
-      camera.zoom = 1.1;
+      const camera = new THREE.PerspectiveCamera(14.0, aspect, 0.1, 1000);
+      if (container.width < 600) {
+        camera.fov = 22;
+        camera.position.set(0.2, 9.8, 38.0);
+      } else if (container.width < 960) {
+        camera.fov = 18;
+        camera.position.set(1.2, 11.2, 32.0);
+      } else if (container.width < 1440) {
+        camera.fov = 14.5;
+        camera.position.set(0.65, 13.0, 25.5);
+      } else {
+        camera.fov = 14.0;
+        camera.position.set(0.65, 13.0, 25.2);
+      }
+      camera.zoom = 1.0;
       camera.updateProjectionMatrix();
 
       let headBone: THREE.Object3D | null = null;
@@ -53,27 +64,32 @@ const Scene = () => {
       let progress = setProgress((value) => setLoading(value));
       const { loadCharacter } = setCharacter(renderer, scene, camera);
 
-      loadCharacter().then((gltf) => {
-        if (gltf) {
-          const animations = setAnimations(gltf);
-          hoverDivRef.current && animations.hover(gltf, hoverDivRef.current);
-          mixer = animations.mixer;
-          let character = gltf.scene;
-          setChar(character);
-          scene.add(character);
-          headBone = character.getObjectByName("spine006") || null;
-          screenLight = character.getObjectByName("screenlight") || null;
-          progress.loaded().then(() => {
-            setTimeout(() => {
-              light.turnOnLights();
-              animations.startIntro();
-            }, 2500);
-          });
-          window.addEventListener("resize", () =>
-            handleResize(renderer, camera, canvasDiv, character)
-          );
-        }
-      });
+      loadCharacter()
+        .then((gltf) => {
+          if (gltf) {
+            const animations = setAnimations(gltf);
+            hoverDivRef.current && animations.hover(gltf, hoverDivRef.current);
+            mixer = animations.mixer;
+            let character = gltf.scene;
+            setChar(character);
+            scene.add(character);
+            headBone = character.getObjectByName("spine006") || null;
+            screenLight = character.getObjectByName("screenlight") || null;
+            progress.loaded().then(() => {
+              setTimeout(() => {
+                light.turnOnLights();
+                animations.startIntro();
+              }, 2500);
+            });
+            window.addEventListener("resize", () =>
+              handleResize(renderer, camera, canvasDiv, character)
+            );
+          }
+        })
+        .catch((err) => {
+          console.warn("Character 3D load fallback triggered:", err);
+          progress.clear();
+        });
 
       let mouse = { x: 0, y: 0 },
         interpolation = { x: 0.1, y: 0.2 };

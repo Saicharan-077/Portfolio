@@ -147,32 +147,32 @@ export const PORTFOLIO_DATA = {
     {
       title: "Precision Over Perfection",
       desc: "Ship reliable, production-tested software fast, measure real-world feedback, and continuously refine.",
-      icon: "🎯",
+      icon: "target",
     },
     {
       title: "First Principles Thinking",
       desc: "Deconstruct complex challenges into fundamental truths before drafting architectural solutions.",
-      icon: "💡",
+      icon: "bulb",
     },
     {
       title: "Continuous Deep Learning",
       desc: "Technology moves rapidly. Staying insatiably curious and hands-on is non-negotiable for engineering excellence.",
-      icon: "📖",
+      icon: "book",
     },
     {
       title: "Impact-Driven Engineering",
       desc: "Every line of code and neural weight should serve a measurable purpose and solve real human problems.",
-      icon: "🚀",
+      icon: "rocket",
     },
   ],
 
   interests: [
-    { title: "Computer Vision", icon: "👁️", desc: "Object detection, real-time edge inference, model quantization" },
-    { title: "Full-Stack Platforms", icon: "⚡", desc: "Modern microservices, reactive frontends, WebSocket telemetry" },
-    { title: "Linux & Cloud Systems", icon: "🖥️", desc: "Nginx reverse proxy, Docker containers, load testing, SSL/TLS" },
-    { title: "UAV Avionics", icon: "🚁", desc: "Flight controller firmware, ArduPilot automated missions, thermal sensors" },
-    { title: "LLM Cognitive Systems", icon: "🤖", desc: "RAG architectures, function calling, agentic workflows, voice synthesis" },
-    { title: "Entrepreneurship", icon: "🌐", desc: "Technical startup infrastructure, product validation, innovation incubation" },
+    { title: "Computer Vision", icon: "eye", desc: "Object detection, real-time edge inference, model quantization" },
+    { title: "Full-Stack Platforms", icon: "bolt", desc: "Modern microservices, reactive frontends, WebSocket telemetry" },
+    { title: "Linux & Cloud Systems", icon: "server", desc: "Nginx reverse proxy, Docker containers, load testing, SSL/TLS" },
+    { title: "UAV Avionics", icon: "hardware", desc: "Flight controller firmware, ArduPilot automated missions, thermal sensors" },
+    { title: "LLM Cognitive Systems", icon: "brain", desc: "RAG architectures, function calling, agentic workflows, voice synthesis" },
+    { title: "Entrepreneurship", icon: "globe", desc: "Technical startup infrastructure, product validation, innovation incubation" },
   ],
 
   experiences: [
@@ -683,7 +683,7 @@ export const PORTFOLIO_DATA = {
     categories: [
       {
         name: "Programming Languages",
-        icon: "💻",
+        icon: "code",
         skills: [
           { name: "C++", level: 90, desc: "Competitive programming, STL, memory management" },
           { name: "Java", level: 88, desc: "OOPs, multithreading, enterprise backend" },
@@ -695,7 +695,7 @@ export const PORTFOLIO_DATA = {
       },
       {
         name: "Frameworks & Web Tech",
-        icon: "⚡",
+        icon: "bolt",
         skills: [
           { name: "React.js", level: 92, desc: "Hooks, state management, component architecture" },
           { name: "Next.js", level: 85, desc: "SSR, SSG, App Router, production SEO" },
@@ -708,7 +708,7 @@ export const PORTFOLIO_DATA = {
       },
       {
         name: "AI, Machine Learning & Vision",
-        icon: "🧠",
+        icon: "brain",
         skills: [
           { name: "YOLOv11", level: 92, desc: "Object detection, real-time tracking, custom training" },
           { name: "PyTorch", level: 85, desc: "Tensor operations, neural layers, backpropagation" },
@@ -720,7 +720,7 @@ export const PORTFOLIO_DATA = {
       },
       {
         name: "Databases & Systems",
-        icon: "🗄️",
+        icon: "database",
         skills: [
           { name: "MySQL", level: 88, desc: "Query optimization, schema design, constraints" },
           { name: "PostgreSQL", level: 82, desc: "ACID compliance, relational integrity, JSONB" },
@@ -733,7 +733,7 @@ export const PORTFOLIO_DATA = {
       },
       {
         name: "Hardware, UAV & Embedded",
-        icon: "🚁",
+        icon: "hardware",
         skills: [
           { name: "UAV Assembly", level: 88, desc: "Frame assembly, power distribution, soldering" },
           { name: "ArduPilot", level: 86, desc: "Autonomous flight modes, waypoint missions" },
@@ -750,7 +750,7 @@ export const PORTFOLIO_DATA = {
       id: "echo-hackathon-2026",
       title: "Echo Hackathon 2026 – Runner-Up",
       event: "Student Alumni Association, VNR VJIET",
-      position: "Runner-Up 🥈",
+      position: "Runner-Up",
       year: "2026",
       accent: "#818cf8",
       gradient: "from-indigo-400/30 via-purple-500/20 to-slate-900/20",
@@ -766,7 +766,7 @@ export const PORTFOLIO_DATA = {
       id: "solution-sprint-2",
       title: "Runner-Up – Solution Sprint 2.0",
       event: "Solution Sprint 2.0 Hackathon",
-      position: "Runner-Up 🥈",
+      position: "Runner-Up",
       year: "2024",
       accent: "#cbd5e1",
       gradient: "from-slate-400/30 via-gray-500/20 to-slate-900/20",
@@ -781,7 +781,7 @@ export const PORTFOLIO_DATA = {
       id: "webathon-2",
       title: "Runner-Up – Webathon 2.0",
       event: "Webathon 2.0 Development Challenge",
-      position: "Runner-Up 🥈",
+      position: "Runner-Up",
       year: "2024",
       accent: "#60a5fa",
       gradient: "from-blue-400/30 via-cyan-500/20 to-blue-900/20",
@@ -796,7 +796,7 @@ export const PORTFOLIO_DATA = {
       id: "startup-premier-league",
       title: "Winner – Startup Premier League",
       event: "Startup Premier League Entrepreneurship Challenge",
-      position: "Winner 🏆",
+      position: "1st Place Winner",
       year: "2024",
       accent: "#facc15",
       gradient: "from-yellow-400/30 via-amber-500/20 to-orange-900/20",
@@ -811,7 +811,7 @@ export const PORTFOLIO_DATA = {
       id: "iste-core-member",
       title: "ISTE Core Committee Member",
       event: "Indian Society for Technical Education",
-      position: "Core Member ⭐",
+      position: "Core Member",
       year: "2023 – Present",
       accent: "#c084fc",
       gradient: "from-violet-400/30 via-purple-500/20 to-violet-900/20",
@@ -826,7 +826,7 @@ export const PORTFOLIO_DATA = {
       id: "wing-master-vjstartups",
       title: "Wing Master – Infrastructure Wing",
       event: "VJStartups Incubation Cell",
-      position: "Wing Master 🚀",
+      position: "Wing Master",
       year: "2024 – Present",
       accent: "#34d399",
       gradient: "from-emerald-400/30 via-teal-500/20 to-emerald-900/20",
@@ -847,7 +847,7 @@ export const PORTFOLIO_DATA = {
       desc: "Comprehensive certification covering relational algebra, SQL optimization, normalization (1NF-BCNF), concurrency control, indexing, and ACID transaction mechanics.",
       link: "https://drive.google.com/file/d/1F4m5VwaSjdicvNqYa7FqpmnJhiKympy_/view?usp=drive_link",
       accent: "#3b82f6",
-      icon: "🗄️",
+      icon: "database",
     },
     {
       id: "quantum-computing",
@@ -856,7 +856,7 @@ export const PORTFOLIO_DATA = {
       desc: "Rigorous coursework in quantum gates, superposition, entanglement, quantum circuit design, and algorithms including Grover's search and Shor's factorization.",
       link: "https://drive.google.com/file/d/1esyjnsSk5pGuU0z9ls-MG49eqcpZCxm_/view?usp=drive_link",
       accent: "#a855f7",
-      icon: "⚛️",
+      icon: "atom",
     },
     {
       id: "drone-technology",
@@ -865,7 +865,7 @@ export const PORTFOLIO_DATA = {
       desc: "Covers multi-rotor dynamics, avionics hardware, sensor telemetry, autonomous mission planning with ArduPilot, and industrial drone safety regulations.",
       link: "https://drive.google.com/file/d/1maPK-rYC75ghm5tgqPU7Vk5HQyFKG-0O/view?usp=drive_link",
       accent: "#10b981",
-      icon: "🚁",
+      icon: "hardware",
     },
     {
       id: "servicenow-virtual-internship",
@@ -874,7 +874,7 @@ export const PORTFOLIO_DATA = {
       desc: "Hands-on virtual internship in enterprise IT Service Management (ITSM), automated workflow scripting, portal customization, and security administration.",
       link: "https://drive.google.com/file/d/1hWp708VpuRp6fXxKbdSZFQrVo5t4cM9F/view?usp=drive_link",
       accent: "#06b6d4",
-      icon: "☁️",
+      icon: "cloud",
     },
     {
       id: "vjstartups-summer-internship",
@@ -883,7 +883,7 @@ export const PORTFOLIO_DATA = {
       desc: "Summer residency focusing on startup prototyping, product roadmapping, cloud architecture setup, and business strategy modeling.",
       link: "https://drive.google.com/file/d/1veqdYehssaCOMDWfhqjuM3fgKcVsUt7g/view?usp=drive_link",
       accent: "#f97316",
-      icon: "🚀",
+      icon: "rocket",
     },
   ] as CertificationItem[],
 };

@@ -5,9 +5,7 @@ import {
 } from "react-icons/fa6";
 import { SiLeetcode } from "react-icons/si";
 import "./styles/SocialIcons.css";
-import { TbNotes } from "react-icons/tb";
 import { useEffect } from "react";
-import HoverLinks from "./HoverLinks";
 
 const SocialIcons = () => {
   useEffect(() => {
@@ -65,7 +63,8 @@ const SocialIcons = () => {
             href="https://github.com/Saicharan-077"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="GitHub"
+            aria-label="GitHub Profile"
+            title="GitHub"
           >
             <FaGithub />
           </a>
@@ -75,7 +74,8 @@ const SocialIcons = () => {
             href="https://linkedin.com/in/godavarthi-sai-charan"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="LinkedIn"
+            aria-label="LinkedIn Profile"
+            title="LinkedIn"
           >
             <FaLinkedinIn />
           </a>
@@ -85,7 +85,8 @@ const SocialIcons = () => {
             href="https://leetcode.com/Saicharan-077/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="LeetCode"
+            aria-label="LeetCode Profile"
+            title="LeetCode"
           >
             <SiLeetcode />
           </a>
@@ -95,23 +96,13 @@ const SocialIcons = () => {
             href="https://x.com"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Twitter/X"
+            aria-label="Twitter / X Profile"
+            title="X (Twitter)"
           >
             <FaXTwitter />
           </a>
         </span>
       </div>
-      <a
-        className="resume-button"
-        href="/resume.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <HoverLinks text="RESUME" />
-        <span>
-          <TbNotes />
-        </span>
-      </a>
     </div>
   );
 };

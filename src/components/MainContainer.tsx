@@ -42,11 +42,11 @@ const MainContainer = ({ children }: PropsWithChildren) => {
             <Landing>{!isDesktopView && children}</Landing>
             <About />
             <WhatIDo />
+            <Career />
+            <Work />
             <Suspense fallback={<div style={{ minHeight: "200px", display: "flex", alignItems: "center", justifyContent: "center", color: "#888" }}>Loading Arsenal...</div>}>
               <TechStack />
             </Suspense>
-            <Career />
-            <Work />
             <Achievements />
             <Contact />
           </div>

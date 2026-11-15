@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { ProjectCaseStudy } from "../data/portfolioData";
 import { MdClose, MdArrowOutward } from "react-icons/md";
-import { FaGithub } from "react-icons/fa6";
+import { FaGithub, FaLightbulb } from "react-icons/fa6";
+import { FaExclamationTriangle } from "react-icons/fa";
 import "./styles/ProjectModal.css";
 
 interface ProjectModalProps {
@@ -109,11 +110,11 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
           {/* Section: Problem & Solution */}
           <div className="modal-grid-2">
             <section className="modal-card">
-              <h4>⚠️ The Challenge</h4>
+              <h4><FaExclamationTriangle className="modal-title-icon" /> The Challenge</h4>
               <p>{project.problem}</p>
             </section>
             <section className="modal-card">
-              <h4>💡 Engineered Solution</h4>
+              <h4><FaLightbulb className="modal-title-icon" /> Engineered Solution</h4>
               <p>{project.solution}</p>
             </section>
           </div>

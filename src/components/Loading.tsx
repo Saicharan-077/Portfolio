@@ -10,6 +10,18 @@ const Loading = ({ percent }: { percent: number }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [clicked, setClicked] = useState(false);
 
+  useEffect(() => {
+    // Safety fallback: Ensure loader completes even if 3D context is slow or unavailable
+    const fallbackTimer = setTimeout(() => {
+      setLoaded(true);
+      setTimeout(() => {
+        setIsLoaded(true);
+      }, 600);
+    }, 4500);
+
+    return () => clearTimeout(fallbackTimer);
+  }, []);
+
   if (percent >= 100) {
     setTimeout(() => {
       setLoaded(true);

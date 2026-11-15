@@ -1,7 +1,32 @@
 import { useState } from "react";
 import PORTFOLIO_DATA from "../data/portfolioData";
 import { FaTrophy, FaAward, FaExternalLinkAlt } from "react-icons/fa";
+import {
+  FaDatabase,
+  FaAtom,
+  FaMicrochip,
+  FaCloud,
+  FaRocket,
+  FaCertificate,
+} from "react-icons/fa6";
 import "./styles/Achievements.css";
+
+const renderCertIcon = (iconName: string) => {
+  switch (iconName) {
+    case "database":
+      return <FaDatabase />;
+    case "atom":
+      return <FaAtom />;
+    case "hardware":
+      return <FaMicrochip />;
+    case "cloud":
+      return <FaCloud />;
+    case "rocket":
+      return <FaRocket />;
+    default:
+      return <FaCertificate />;
+  }
+};
 
 const Achievements = () => {
   const [activeTab, setActiveTab] = useState<"achievements" | "certifications">("achievements");
@@ -84,7 +109,7 @@ const Achievements = () => {
                   borderTop: `3px solid ${cert.accent}`,
                 }}
               >
-                <div className="cert-card-icon">{cert.icon}</div>
+                <div className="cert-card-icon">{renderCertIcon(cert.icon)}</div>
                 <div className="cert-card-body">
                   <span className="cert-verified" style={{ color: cert.accent }}>
                     <FaAward /> Verified Credential
