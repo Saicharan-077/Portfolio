@@ -3,8 +3,8 @@
   max-width: var(--cMaxWidth);
   width: var(--cWidth);
   justify-content: space-between;
+  align-items: center;
   padding: 20px 0px;
-  margin-bottom: -100px;
   box-sizing: border-box;
   position: fixed;
   left: 50%;
@@ -12,72 +12,158 @@
   top: 0;
   z-index: 9999;
 }
-.header ul {
-  font-size: 12px;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  column-gap: 40px;
-  row-gap: 8px;
-  align-items: end;
+
+.navbar-title {
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  color: #fff;
+  text-decoration: none;
+  z-index: 10001;
 }
-.header ul li {
-  margin-left: 0px;
-  letter-spacing: 1px;
-  color: #ccc;
-  font-weight: 600;
-  cursor: pointer;
-}
+
 .navbar-connect {
   position: absolute;
   display: none;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  font-size: 15px;
-  letter-spacing: 1px;
-  font-weight: 500;
-}
-.navbar-title {
-  font-weight: 700;
   font-size: 14px;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  color: #a8a8b8;
+  transition: color 0.3s ease;
 }
-@media only screen and (min-width: 500px) {
-  .header {
-    padding: 20px 0px;
+
+.navbar-connect:hover {
+  color: #fff;
+}
+
+.navbar-mobile-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 18px;
+  padding: 8px 12px;
+  cursor: pointer;
+  z-index: 10001;
+  transition: all 0.25s ease;
+}
+
+.navbar-mobile-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.header ul.navbar-links {
+  display: none;
+}
+
+.header ul.navbar-links.open {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(8, 8, 12, 0.96);
+  backdrop-filter: blur(20px);
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  z-index: 10000;
+}
+
+.header ul.navbar-links.open li {
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  color: #e0e0e0;
+}
+
+.navbar-resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(99, 102, 241, 0.2));
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  border-radius: 999px;
+  color: #d8b4fe !important;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.navbar-resume-btn:hover {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.35), rgba(99, 102, 241, 0.35));
+  border-color: rgba(168, 85, 247, 0.8);
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.4);
+  transform: translateY(-1px);
+}
+
+@media only screen and (min-width: 768px) {
+  .navbar-mobile-toggle {
+    display: none;
   }
-  .header ul {
+
+  .header ul.navbar-links {
+    display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 14px;
+    column-gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
-  .header ul li {
-    color: #eae5ec;
+
+  .header ul.navbar-links li {
+    font-size: 13px;
+    letter-spacing: 0.8px;
+    color: #b5b5c5;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.25s ease;
   }
-  .navbar-title {
-    font-size: 16px;
+
+  .header ul.navbar-links li:hover {
+    color: #fff;
   }
 }
-@media only screen and (min-width: 900px) {
+
+@media only screen and (min-width: 1100px) {
   .navbar-connect {
     display: block;
   }
-}
-@media only screen and (min-width: 1200px) {
+
   .header {
-    padding: 35px 0px;
+    padding: 28px 0px;
   }
-  .header ul {
-    column-gap: 80px;
-    font-size: 16px;
+
+  .header ul.navbar-links {
+    column-gap: 32px;
   }
-  .navbar-connect {
-    font-size: 16px;
+
+  .header ul.navbar-links li {
+    font-size: 14px;
   }
+
   .navbar-title {
-    font-size: 18px;
+    font-size: 17px;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .header ul.navbar-links {
+    column-gap: 40px;
   }
 }

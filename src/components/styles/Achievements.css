@@ -1,0 +1,301 @@
+.achievements-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: var(--cWidth);
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 100px 0 140px;
+}
+
+.achievements-container {
+  width: 100%;
+}
+
+.achievements-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.achievements-header h2 {
+  font-size: 64px;
+  line-height: 1.1;
+  font-weight: 500;
+  margin: 0 0 16px 0;
+  background: linear-gradient(0deg, #7f40ff, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.achievements-header h2 > span {
+  font-family: "Geist", sans-serif;
+  font-weight: 300;
+}
+
+.achievements-subtitle {
+  font-size: 18px;
+  color: #a7a2b8;
+  max-width: 650px;
+  margin: 0 auto 35px;
+  line-height: 1.6;
+}
+
+.achievements-tabs {
+  display: inline-flex;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 6px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ach-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+  color: #9f9ab4;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.ach-tab-btn.active {
+  background: #7f40ff;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(127, 64, 255, 0.4);
+}
+
+.ach-tab-btn:hover:not(.active) {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 28px;
+}
+
+.achievement-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.achievement-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(127, 64, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(127, 64, 255, 0.1);
+}
+
+.ach-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.ach-position {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.ach-year {
+  font-size: 12px;
+  color: #7e7992;
+  font-weight: 500;
+}
+
+.achievement-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 6px 0;
+  line-height: 1.25;
+}
+
+.ach-event {
+  font-size: 14px;
+  color: #7f40ff;
+  margin: 0 0 14px 0;
+  font-weight: 500;
+}
+
+.ach-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #b5b0c8;
+  margin: 0 0 20px 0;
+  flex-grow: 1;
+}
+
+.ach-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.ach-tags span {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #cfcbde;
+}
+
+.ach-learnings {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 16px;
+  font-size: 12px;
+  color: #9f9ab4;
+}
+
+.ach-learnings strong {
+  display: block;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.ach-learnings ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ach-learnings li {
+  position: relative;
+  padding-left: 14px;
+  line-height: 1.4;
+}
+
+.ach-learnings li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #7f40ff;
+}
+
+/* Certifications */
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 28px;
+}
+
+.cert-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cert-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.cert-card-icon {
+  font-size: 38px;
+  flex-shrink: 0;
+}
+
+.cert-card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cert-verified {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.cert-card-body h3 {
+  font-size: 19px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 6px 0;
+  line-height: 1.3;
+}
+
+.cert-org {
+  font-size: 13px;
+  color: #7f40ff;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+}
+
+.cert-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #b5b0c8;
+  margin: 0 0 20px 0;
+}
+
+.cert-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  align-self: flex-start;
+  transition: all 0.2s ease;
+}
+
+.cert-link-btn:hover {
+  background: rgba(127, 64, 255, 0.2);
+  border-color: #7f40ff;
+  transform: translateX(3px);
+}
+
+@media only screen and (max-width: 900px) {
+  .achievements-header h2 {
+    font-size: 42px;
+  }
+  .achievements-tabs {
+    flex-direction: column;
+    width: 100%;
+  }
+  .ach-tab-btn {
+    justify-content: center;
+  }
+  .cert-card {
+    flex-direction: column;
+    gap: 14px;
+  }
+}

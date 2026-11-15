@@ -39,15 +39,22 @@ Portfolio-Website/
 │   │   ├── Character/      # Three.js 3D character scene, bone IK & lighting
 │   │   ├── styles/         # Scoped component stylesheets
 │   │   ├── utils/          # Smooth scrolling (Lenis), SplitText, GSAP timelines
-│   │   ├── About.tsx       # Bio & engineering philosophy
+│   │   ├── About.tsx       # Bio, stats, education timeline & engineering philosophy
+│   │   ├── Achievements.tsx# Honors, hackathons & verified certifications
 │   │   ├── Career.tsx      # Timeline of internships & roles
-│   │   ├── Contact.tsx     # Contact details & social links
+│   │   ├── Contact.tsx     # Direct contact form & communication channels
 │   │   ├── Cursor.tsx      # Custom animated spotlight cursor
+│   │   ├── ExperienceModal.tsx # Role deep-dive case study modal
 │   │   ├── Landing.tsx     # Dynamic hero section with 3D character view
 │   │   ├── Loading.tsx     # Interactive loading counter & marquee
 │   │   ├── MainContainer.tsx
-│   │   ├── Navbar.tsx      # Smooth-scrolling navigation header
+│   │   ├── Navbar.tsx      # Responsive navigation header & mobile drawer
+│   │   ├── ProjectModal.tsx# Project deep-dive architecture modal
 │   │   ├── SocialIcons.tsx # Floating social dock & resume download
+│   │   ├── TechStack.tsx   # 3D Rapier physics balls + competency matrix
+│   │   └── Work.tsx        # Horizontal GSAP scroll project showcase
+│   ├── data/
+│   │   └── portfolioData.ts# Centralized single source of truth
 │   │   ├── TechStack.tsx   # Rapier-powered 3D physics spheres
 │   │   ├── WhatIDo.tsx     # Interactive folded cards (AI & Full-Stack)
 │   │   ├── Work.tsx        # Horizontal scroll projects showcase

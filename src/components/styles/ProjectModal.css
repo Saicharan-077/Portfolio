@@ -1,0 +1,450 @@
+.project-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background-color: rgba(5, 3, 10, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 15px;
+  animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.project-modal-container {
+  position: relative;
+  width: 100%;
+  max-width: 950px;
+  max-height: 90vh;
+  background: #0d0a14;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.8), 0 0 40px rgba(127, 64, 255, 0.15);
+  animation: modalSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  color: #fff;
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.project-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.project-modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+.project-modal-hero {
+  padding: 45px 45px 35px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+}
+
+.project-modal-badge {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.project-modal-hero h2 {
+  font-size: 38px;
+  line-height: 1.15;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  background: linear-gradient(135deg, #ffffff, #cfc5e8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.project-modal-subtitle {
+  font-size: 18px;
+  color: #a7a2b8;
+  margin: 0 0 20px 0;
+  font-weight: 400;
+}
+
+.project-modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 25px;
+}
+
+.project-modal-tag {
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #d1cde0;
+  font-weight: 500;
+}
+
+.project-modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.project-modal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.project-modal-btn.primary {
+  background: linear-gradient(135deg, #7f40ff, #5b1fff);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(127, 64, 255, 0.35);
+}
+
+.project-modal-btn.primary:hover {
+  background: linear-gradient(135deg, #9154ff, #6d33ff);
+  box-shadow: 0 6px 26px rgba(127, 64, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.project-modal-btn.secondary {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.project-modal-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.project-modal-body {
+  padding: 40px 45px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.project-modal-media {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #000;
+}
+
+.project-modal-media img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+.modal-section h3 {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 0 16px 0;
+}
+
+.modal-text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #c4c0d4;
+  margin: 0;
+}
+
+.modal-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.modal-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.modal-card h4 {
+  font-size: 16px;
+  margin: 0 0 10px 0;
+  color: #fff;
+  font-weight: 600;
+}
+
+.modal-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #a7a2b8;
+  margin: 0;
+}
+
+.modal-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.modal-metric-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 22px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metric-val {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.metric-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  margin-top: 4px;
+}
+
+.metric-desc {
+  font-size: 12px;
+  color: #8c879f;
+}
+
+.modal-workflow-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-workflow-item {
+  display: flex;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 16px 20px;
+  align-items: flex-start;
+}
+
+.workflow-step {
+  font-size: 20px;
+  font-weight: 800;
+  min-width: 32px;
+}
+
+.modal-workflow-item h5 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: #fff;
+}
+
+.modal-workflow-item p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #a7a2b8;
+  margin: 0;
+}
+
+.modal-arch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.modal-arch-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.arch-layer {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.modal-arch-card h6 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  margin: 6px 0 6px 0;
+}
+
+.modal-arch-card p {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #9f9ab4;
+  margin: 0;
+}
+
+.modal-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.modal-feature-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.modal-feature-card h5 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 6px 0;
+}
+
+.modal-feature-card p {
+  font-size: 13px;
+  color: #a7a2b8;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.modal-challenges-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.modal-challenge-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.challenge-q {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fca5a5;
+}
+
+.challenge-a {
+  font-size: 13px;
+  color: #86efac;
+  line-height: 1.5;
+}
+
+.modal-training-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.training-phase-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  color: #c4c0d4;
+  line-height: 1.5;
+}
+
+.training-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.modal-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-bullet-list li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #a7a2b8;
+}
+
+.modal-bullet-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #7f40ff;
+}
+
+@media only screen and (max-width: 768px) {
+  .project-modal-hero {
+    padding: 30px 20px 25px;
+  }
+  .project-modal-hero h2 {
+    font-size: 26px;
+  }
+  .project-modal-subtitle {
+    font-size: 15px;
+  }
+  .project-modal-body {
+    padding: 25px 20px 40px;
+    gap: 30px;
+  }
+  .modal-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}

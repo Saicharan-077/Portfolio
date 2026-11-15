@@ -1,68 +1,63 @@
+import { useState } from "react";
 import "./styles/Career.css";
+import PORTFOLIO_DATA, { ExperienceItem } from "../data/portfolioData";
+import ExperienceModal from "./ExperienceModal";
+import { MdInfoOutline } from "react-icons/md";
 
 const Career = () => {
+  const [selectedExp, setSelectedExp] = useState<ExperienceItem | null>(null);
+
   return (
-    <div className="career-section section-container" id="career">
-      <div className="career-container">
-        <h2>
-          My career <span>&</span>
-          <br /> experience
-        </h2>
-        <div className="career-info">
-          <div className="career-timeline">
-            <div className="career-dot"></div>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>AI/ML Intern</h4>
-                <h5>Innovision Limited</h5>
-              </div>
-              <h3>2026</h3>
+    <>
+      <div className="career-section section-container" id="career">
+        <div className="career-container">
+          <h2>
+            My career <span>&</span>
+            <br /> experience
+          </h2>
+          <div className="career-info">
+            <div className="career-timeline">
+              <div className="career-dot"></div>
             </div>
-            <p>
-              Developed an industrial fire & smoke detection system using YOLOv11 and PyTorch. Built real-time inference pipelines, curated custom datasets, and engineered live streaming dashboards.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>DevOps Intern</h4>
-                <h5>Aarna Connect</h5>
+
+            {PORTFOLIO_DATA.experiences.map((exp) => (
+              <div className="career-info-box" key={exp.id}>
+                <div className="career-info-in">
+                  <div className="career-role">
+                    <h4 style={{ color: "#ffffff" }}>{exp.role}</h4>
+                    <h5 style={{ color: exp.accent }}>{exp.company}</h5>
+                    {exp.mentor && (
+                      <span className="career-mentor">Mentor: {exp.mentor}</span>
+                    )}
+                  </div>
+                  <h3 style={{ color: exp.accent }}>{exp.year}</h3>
+                </div>
+                <div className="career-desc-wrap">
+                  <p>{exp.summary}</p>
+                  <div className="career-tags-row">
+                    {exp.tags.slice(0, 4).map((t) => (
+                      <span key={t}>{t}</span>
+                    ))}
+                  </div>
+                  <button
+                    className="career-detail-btn"
+                    onClick={() => setSelectedExp(exp)}
+                    data-cursor="disable"
+                  >
+                    <MdInfoOutline /> View Detailed Case Study
+                  </button>
+                </div>
               </div>
-              <h3>2026</h3>
-            </div>
-            <p>
-              Orchestrated cloud infrastructure and deployment automation. Configured Docker containers, streamlined CI/CD pipelines, and monitored production environment reliability.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Server Management Intern</h4>
-                <h5>Innovation & Incubation Cell</h5>
-              </div>
-              <h3>2025</h3>
-            </div>
-            <p>
-              Administered 10+ Linux production servers under Mr. M Krishna Prasad with 99.9% uptime. Configured Nginx reverse proxies, SSL/TLS, Google Cloud VMs, and performed load testing.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>UAV Systems Intern</h4>
-                <h5>Flydronics</h5>
-              </div>
-              <h3>2025</h3>
-            </div>
-            <p>
-              Assembled 5+ UAV airframes with propulsion and avionics integration. Calibrated flight controllers and programmed automated flight missions using ArduPilot for thermal analysis.
-            </p>
+            ))}
           </div>
         </div>
       </div>
-    </div>
+
+      <ExperienceModal
+        experience={selectedExp}
+        onClose={() => setSelectedExp(null)}
+      />
+    </>
   );
 };
 

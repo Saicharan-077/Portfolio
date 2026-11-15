@@ -1,93 +1,50 @@
+import { useState } from "react";
 import "./styles/Work.css";
 import WorkImage from "./WorkImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import PORTFOLIO_DATA, { ProjectCaseStudy } from "../data/portfolioData";
+import ProjectModal from "./ProjectModal";
+import { FaGithub } from "react-icons/fa6";
+import { MdArrowOutward, MdInfoOutline } from "react-icons/md";
 
-gsap.registerPlugin(useGSAP);
-
-const projects = [
-  {
-    num: "01",
-    name: "Fire & Smoke Detection",
-    category: "Industrial AI Safety",
-    tools: "YOLOv11, PyTorch, OpenCV, FastAPI, React, ONNX, WebSockets",
-    image: "/images/fire-smoke-demo.webp",
-    link: "https://github.com/Saicharan-077",
-  },
-  {
-    num: "02",
-    name: "VoxScholar",
-    category: "AI Learning Companion",
-    tools: "React.js, Node.js, FastAPI, MongoDB, TTS, RAG, Web Speech",
-    image: "/images/placeholder.webp",
-    link: "https://github.com/Saicharan-077/vox-scholar-ai",
-  },
-  {
-    num: "03",
-    name: "VNR Parking",
-    category: "Campus Management",
-    tools: "Spring Boot, React.js, WebSockets, MySQL, REST APIs",
-    image: "/images/placeholder.webp",
-    link: "https://github.com/Manikanth8910/VNRPARKING",
-  },
-  {
-    num: "04",
-    name: "ClearScore AI",
-    category: "AI Evaluation System",
-    tools: "React.js, FastAPI, Python, LLM APIs, Tailwind CSS",
-    image: "/images/placeholder.webp",
-    link: "https://github.com/Saicharan-077/clear-score-ai.git",
-  },
-  {
-    num: "05",
-    name: "Solar Drone System",
-    category: "UAV Avionics & Thermal Vision",
-    tools: "ArduPilot, Flight Controllers, Thermal Sensors, Arduino",
-    image: "/images/placeholder.webp",
-    link: "https://github.com/Saicharan-077",
-  },
-  {
-    num: "06",
-    name: "SafeHaven App",
-    category: "Security & Incident Platform",
-    tools: "React, Vite, Node.js, Express, Tailwind CSS, REST APIs",
-    image: "/images/placeholder.webp",
-    link: "https://github.com/Saicharan-077",
-  },
-];
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const Work = () => {
+  const [selectedProject, setSelectedProject] = useState<ProjectCaseStudy | null>(null);
+
   useGSAP(() => {
-    let translateX: number = 0;
+    let translateX = 0;
 
     function setTranslateX() {
-      const box = document.getElementsByClassName("work-box");
-      const rectLeft = document
-        .querySelector(".work-container")!
-        .getBoundingClientRect().left;
-      const rect = box[0].getBoundingClientRect();
-      const parentWidth = box[0].parentElement!.getBoundingClientRect().width;
-      let padding: number =
-        parseInt(window.getComputedStyle(box[0]).padding) / 2;
-      translateX = rect.width * box.length - (rectLeft + parentWidth) + padding;
+      const boxes = document.getElementsByClassName("work-box");
+      const container = document.querySelector(".work-container");
+      if (!boxes.length || !container) return;
+
+      const rectLeft = container.getBoundingClientRect().left;
+      const rect = boxes[0].getBoundingClientRect();
+      const parentWidth = boxes[0].parentElement!.getBoundingClientRect().width;
+      const padding = parseInt(window.getComputedStyle(boxes[0]).padding) / 2 || 40;
+      translateX = rect.width * boxes.length - (rectLeft + parentWidth) + padding;
     }
 
     setTranslateX();
 
-    let timeline = gsap.timeline({
+    const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: ".work-section",
         start: "top top",
-        end: `+=${translateX}`,
-        scrub: true,
+        end: () => `+=${Math.max(translateX, 1200)}`,
+        scrub: 1,
         pin: true,
         id: "work",
+        invalidateOnRefresh: true,
       },
     });
 
     timeline.to(".work-flex", {
-      x: -translateX,
+      x: () => -translateX,
       ease: "none",
     });
 
@@ -98,32 +55,78 @@ const Work = () => {
   }, []);
 
   return (
-    <div className="work-section" id="work">
-      <div className="work-container section-container">
-        <h2>
-          My <span>Work</span>
-        </h2>
-        <div className="work-flex">
-          {projects.map((proj) => (
-            <div className="work-box" key={proj.num}>
-              <div className="work-info">
-                <div className="work-title">
-                  <h3>{proj.num}</h3>
+    <>
+      <div className="work-section" id="work">
+        <div className="work-container section-container">
+          <h2>
+            Featured <span>Work</span>
+          </h2>
+          <div className="work-flex">
+            {PORTFOLIO_DATA.projects.map((proj) => (
+              <div className="work-box" key={proj.id}>
+                <div className="work-info">
+                  <div className="work-title">
+                    <h3 style={{ color: proj.accentColor }}>{proj.num}</h3>
+                    <div>
+                      <h4>{proj.title}</h4>
+                      <p>{proj.category}</p>
+                    </div>
+                  </div>
+                  <p className="work-pitch">{proj.desc}</p>
+                  <div className="work-tags-row">
+                    {proj.tags.slice(0, 4).map((tag) => (
+                      <span key={tag} className="work-tag-badge">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
 
-                  <div>
-                    <h4>{proj.name}</h4>
-                    <p>{proj.category}</p>
+                  <div className="work-card-actions">
+                    <button
+                      className="work-explore-btn"
+                      onClick={() => setSelectedProject(proj)}
+                      data-cursor="disable"
+                    >
+                      <MdInfoOutline /> Deep Dive Case Study
+                    </button>
+                    {proj.github && (
+                      <a
+                        href={proj.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="work-gh-icon"
+                        title="View GitHub Repository"
+                        data-cursor="disable"
+                      >
+                        <FaGithub /> <MdArrowOutward />
+                      </a>
+                    )}
                   </div>
                 </div>
-                <h4>Tools and features</h4>
-                <p>{proj.tools}</p>
+
+                <div
+                  className="work-image-wrapper"
+                  onClick={() => setSelectedProject(proj)}
+                  title="Click to view full case study"
+                  data-cursor="disable"
+                >
+                  <WorkImage
+                    image={proj.image}
+                    alt={proj.title}
+                    link={proj.github}
+                  />
+                </div>
               </div>
-              <WorkImage image={proj.image} alt={proj.name} link={proj.link} />
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
+    </>
   );
 };
 

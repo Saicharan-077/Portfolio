@@ -1,0 +1,143 @@
+.techstack-section {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 60px auto 100px;
+}
+
+.skills-matrix-container {
+  width: var(--cWidth);
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 60px 0 100px;
+  position: relative;
+  z-index: 5;
+}
+
+.skills-mobile-header {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.skills-mobile-header h2 {
+  font-size: 54px;
+  font-weight: 500;
+  margin: 0 0 12px 0;
+  background: linear-gradient(0deg, #7f40ff, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.skills-mobile-header h2 > span {
+  font-family: "Geist", sans-serif;
+  font-weight: 300;
+}
+
+.skills-mobile-header p {
+  font-size: 16px;
+  color: #a7a2b8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.skills-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 26px;
+}
+
+.skill-cat-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: all 0.3s ease;
+}
+
+.skill-cat-card:hover {
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(127, 64, 255, 0.3);
+  transform: translateY(-4px);
+}
+
+.skill-cat-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 16px;
+}
+
+.skill-cat-icon {
+  font-size: 24px;
+}
+
+.skill-cat-header h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.skill-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.skill-item-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skill-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #eae5ec;
+}
+
+.skill-pct {
+  font-size: 12px;
+  color: #7f40ff;
+  font-weight: 600;
+}
+
+.skill-bar-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #7f40ff, #c2a4ff);
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skill-desc {
+  font-size: 11px;
+  color: #8c879f;
+  margin: 0;
+  line-height: 1.4;
+}
+
+@media only screen and (max-width: 900px) {
+  .skills-mobile-header h2 {
+    font-size: 40px;
+  }
+}

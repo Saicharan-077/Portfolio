@@ -200,6 +200,86 @@
     gap: 20px;
   }
 } */
+.work-pitch {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #c4c0d4 !important;
+  margin: 12px 0 16px 0 !important;
+}
+
+.work-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.work-tag-badge {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #cfcbde;
+}
+
+.work-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.work-explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  background: rgba(127, 64, 255, 0.15);
+  border: 1px solid rgba(127, 64, 255, 0.4);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.work-explore-btn:hover {
+  background: #7f40ff;
+  box-shadow: 0 4px 18px rgba(127, 64, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.work-gh-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.work-gh-icon:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.work-image-wrapper {
+  cursor: pointer;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.work-image-wrapper:hover {
+  transform: scale(1.02);
+}
+
 @media only screen and (max-width: 1025px) {
   .work-container {
     align-content: normal;

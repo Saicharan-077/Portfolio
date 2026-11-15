@@ -10,6 +10,8 @@ import {
   CylinderCollider,
   RapierRigidBody,
 } from "@react-three/rapier";
+import PORTFOLIO_DATA from "../data/portfolioData";
+import "./styles/TechStack.css";
 
 const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
@@ -126,31 +128,32 @@ function Pointer({ vec = new THREE.Vector3(), isActive }: PointerProps) {
 
 const TechStack = () => {
   const [isActive, setIsActive] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(
+    typeof window !== "undefined" ? window.innerWidth > 1024 : true
+  );
 
   useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 1024);
+    };
+    window.addEventListener("resize", handleResize);
+
     const handleScroll = () => {
       const scrollY = window.scrollY || document.documentElement.scrollTop;
-      const threshold = document
-        .getElementById("work")!
-        .getBoundingClientRect().top;
-      setIsActive(scrollY > threshold);
+      const el = document.getElementById("work");
+      if (el) {
+        const threshold = el.getBoundingClientRect().top;
+        setIsActive(scrollY > threshold);
+      }
     };
-    document.querySelectorAll(".header a").forEach((elem) => {
-      const element = elem as HTMLAnchorElement;
-      element.addEventListener("click", () => {
-        const interval = setInterval(() => {
-          handleScroll();
-        }, 10);
-        setTimeout(() => {
-          clearInterval(interval);
-        }, 1000);
-      });
-    });
     window.addEventListener("scroll", handleScroll);
+
     return () => {
+      window.removeEventListener("resize", handleResize);
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   const materials = useMemo(() => {
     return textures.map(
       (texture) =>
@@ -167,46 +170,88 @@ const TechStack = () => {
   }, []);
 
   return (
-    <div className="techstack">
-      <h2> My Techstack</h2>
-
-      <Canvas
-        shadows
-        gl={{ alpha: true, stencil: false, depth: false, antialias: false }}
-        camera={{ position: [0, 0, 20], fov: 32.5, near: 1, far: 100 }}
-        onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
-        className="tech-canvas"
-      >
-        <ambientLight intensity={1} />
-        <spotLight
-          position={[20, 20, 25]}
-          penumbra={1}
-          angle={0.2}
-          color="white"
-          castShadow
-          shadow-mapSize={[512, 512]}
-        />
-        <directionalLight position={[0, 5, -4]} intensity={2} />
-        <Physics gravity={[0, 0, 0]}>
-          <Pointer isActive={isActive} />
-          {spheres.map((props, i) => (
-            <SphereGeo
-              key={i}
-              {...props}
-              material={materials[Math.floor(Math.random() * materials.length)]}
-              isActive={isActive}
+    <div className="techstack-section" id="techstack">
+      {/* 3D Interactive Canvas for Desktop */}
+      {isDesktop && (
+        <div className="techstack">
+          <h2>My Techstack</h2>
+          <Canvas
+            shadows
+            gl={{ alpha: true, stencil: false, depth: false, antialias: false }}
+            camera={{ position: [0, 0, 20], fov: 32.5, near: 1, far: 100 }}
+            onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
+            className="tech-canvas"
+          >
+            <ambientLight intensity={1} />
+            <spotLight
+              position={[20, 20, 25]}
+              penumbra={1}
+              angle={0.2}
+              color="white"
+              castShadow
+              shadow-mapSize={[512, 512]}
             />
+            <directionalLight position={[0, 5, -4]} intensity={2} />
+            <Physics gravity={[0, 0, 0]}>
+              <Pointer isActive={isActive} />
+              {spheres.map((props, i) => (
+                <SphereGeo
+                  key={i}
+                  {...props}
+                  material={materials[Math.floor(Math.random() * materials.length)]}
+                  isActive={isActive}
+                />
+              ))}
+            </Physics>
+            <Environment
+              files="/models/char_enviorment.hdr"
+              environmentIntensity={0.5}
+              environmentRotation={[0, 4, 2]}
+            />
+            <EffectComposer enableNormalPass={false}>
+              <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
+            </EffectComposer>
+          </Canvas>
+        </div>
+      )}
+
+      {/* Structured Competency Matrix for all viewports */}
+      <div className="skills-matrix-container">
+        {!isDesktop && (
+          <div className="skills-mobile-header">
+            <h2>Technical <span>Arsenal</span></h2>
+            <p>Comprehensive breakdown of specialized frameworks, tools, and platforms.</p>
+          </div>
+        )}
+
+        <div className="skills-categories-grid">
+          {PORTFOLIO_DATA.skills.categories.map((cat) => (
+            <div key={cat.name} className="skill-cat-card">
+              <div className="skill-cat-header">
+                <span className="skill-cat-icon">{cat.icon}</span>
+                <h4>{cat.name}</h4>
+              </div>
+              <div className="skill-items-list">
+                {cat.skills.map((s) => (
+                  <div key={s.name} className="skill-item">
+                    <div className="skill-item-info">
+                      <span className="skill-name">{s.name}</span>
+                      <span className="skill-pct">{s.level}%</span>
+                    </div>
+                    <div className="skill-bar-track">
+                      <div
+                        className="skill-bar-fill"
+                        style={{ width: `${s.level}%` }}
+                      />
+                    </div>
+                    <p className="skill-desc">{s.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           ))}
-        </Physics>
-        <Environment
-          files="/models/char_enviorment.hdr"
-          environmentIntensity={0.5}
-          environmentRotation={[0, 4, 2]}
-        />
-        <EffectComposer enableNormalPass={false}>
-          <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
-        </EffectComposer>
-      </Canvas>
+        </div>
+      </div>
     </div>
   );
 };
